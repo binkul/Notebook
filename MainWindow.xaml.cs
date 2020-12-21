@@ -1,17 +1,12 @@
-﻿using System;
+﻿using System.Windows;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace Notatnik
 {
@@ -23,6 +18,21 @@ namespace Notatnik
         public MainWindow()
         {
             InitializeComponent();
+            ResizeWindow();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void ResizeWindow()
+        {
+            var width = SystemParameters.WorkArea.Width;
+            var height = SystemParameters.WorkArea.Height;
+            Notebook.Width = width - Convert.ToInt16(0.05 * width);
+;           Notebook.Height = height - Convert.ToInt16(0.05 * height);
+            Notebook.Top = (SystemParameters.WorkArea.Height - Notebook.Height) / 2;
+            Notebook.Left = (SystemParameters.WorkArea.Width - Notebook.Width) / 2;
         }
     }
 }
