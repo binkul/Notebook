@@ -218,5 +218,12 @@ namespace Notatnik
             if (WindowsFormsHelper.ChooseColor(ref backgroundColor))
                 textBox.Background = new SolidColorBrush(backgroundColor);
         }
+
+        private void MenuItem_Czcionka_Click(object sender, RoutedEventArgs e)
+        {
+            Font font = Font.ExtractFrom(textBox);
+            if (WindowsFormsHelper.ChooseFont(ref font))
+                font.ApplyTo(textBox);
+        }
     }
 }
