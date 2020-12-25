@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Notatnik
 {
@@ -207,6 +208,15 @@ namespace Notatnik
         {
             var isPositionChecked = (sender as MenuItem).IsChecked;
             statusBar.Visibility = isPositionChecked ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void MenuItem_KolorTla_Click(object sender, RoutedEventArgs e)
+        {
+            Color backgroundColor = Colors.White;
+            if (textBox.Background is SolidColorBrush)
+                backgroundColor = (textBox.Background as SolidColorBrush).Color;
+            if (WindowsFormsHelper.ChooseColor(ref backgroundColor))
+                textBox.Background = new SolidColorBrush(backgroundColor);
         }
     }
 }
