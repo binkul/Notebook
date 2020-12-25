@@ -6,34 +6,50 @@
         xmlns:local="clr-namespace:Notatnik"
         mc:Ignorable="d"
         Title="Notatnik" d:DesignWidth="1055.069" d:DesignHeight="583.303" Loaded="Window_Loaded" Closing="Notebook_Closing" PreviewKeyDown="Notebook_PreviewKeyDown">
+    <Window.Resources>
+        <Image x:Key="IcoNew" x:Shared="False" Source="img/new.png" Width="16" Height="16"/>
+        <Image x:Key="IcoOpen" x:Shared="False" Source="img/open.png" Width="16" Height="16"/>
+        <Image x:Key="IcoSave" x:Shared="False" Source="img/save.png" Width="16" Height="16"/>
+        <Image x:Key="IcoBack" x:Shared="False" Source="img/undo.png" Width="16" Height="16"/>
+        <Image x:Key="IcoRedo" x:Shared="False" Source="img/redo.png" Width="16" Height="16"/>
+        <Image x:Key="IcoPrint" x:Shared="False" Source="img/print.png" Width="16" Height="16"/>
+        <Image x:Key="IcoCut" x:Shared="False" Source="img/cut.png" Width="16" Height="16"/>
+        <Image x:Key="IcoCopy" x:Shared="False" Source="img/copy.png" Width="16" Height="16"/>
+        <Image x:Key="IcoPaste" x:Shared="False" Source="img/paste.png" Width="16" Height="16"/>
+        <Image x:Key="IcoDelete" x:Shared="False" Source="img/delete.png" Width="16" Height="16"/>
+        <Image x:Key="IcoClock" x:Shared="False" Source="img/clock.png" Width="16" Height="16"/>
+        <Image x:Key="IcoForecolor" x:Shared="False" Source="img/forecolor.png" Width="16" Height="16"/>
+        <Image x:Key="IcoBackground" x:Shared="False" Source="img/color.png" Width="16" Height="16"/>
+        <Image x:Key="IcoFont" x:Shared="False" Source="img/font.png" Width="16" Height="16"/>
+    </Window.Resources>
     <DockPanel>
         <Menu IsMainMenu="True" DockPanel.Dock="Top" FontWeight="Bold">
             <MenuItem Header="_Plik">
-                <MenuItem Header="_Nowy" InputGestureText="Ctrl+N" Click="MenuItem_Nowy_Click"/>
-                <MenuItem Header="_Otwórz" InputGestureText="Ctrl+O" Click="MenuItem_Otworz_Click"/>
-                <MenuItem Header="Zapi_sz" InputGestureText="Ctrl+S" Click="MenuItem_Zapisz_Click"/>
+                <MenuItem Header="_Nowy" Icon="{StaticResource IcoNew}" InputGestureText="Ctrl+N" Click="MenuItem_Nowy_Click"/>
+                <MenuItem Header="_Otwórz" Icon="{StaticResource IcoOpen}" InputGestureText="Ctrl+O" Click="MenuItem_Otworz_Click"/>
+                <MenuItem Header="Zapi_sz" Icon="{StaticResource IcoSave}" InputGestureText="Ctrl+S" Click="MenuItem_Zapisz_Click"/>
                 <MenuItem Header="_Zapisz jako..." InputGestureText="Ctrl+N" Click="MenuItem_ZapiszJako_Click"/>
                 <Separator/>
-                <MenuItem Header="_Drukuj" InputGestureText="Ctrl+P" Click="MenuItem_Drukuj_Click"/>
+                <MenuItem Header="_Drukuj" Icon="{StaticResource IcoPrint}" InputGestureText="Ctrl+P" Click="MenuItem_Drukuj_Click"/>
                 <Separator/>
                 <MenuItem Header="Za_kończ" InputGestureText="Alt+F4" Click="MenuItem_Zamknij_Click"/>
             </MenuItem>
             <MenuItem Header="_Edycja">
-                <MenuItem Header="_Cofnij" InputGestureText="Ctrl+Z" Click="MenuItem_Cofnij_Click"/>
-                <MenuItem Header="_Powtórz" InputGestureText="Ctrl+Y" Click="MenuItem_Powtorz_Click"/>
+                <MenuItem Header="_Cofnij" Icon="{StaticResource IcoBack}" InputGestureText="Ctrl+Z" Click="MenuItem_Cofnij_Click"/>
+                <MenuItem Header="_Powtórz" Icon="{StaticResource IcoRedo}" InputGestureText="Ctrl+Y" Click="MenuItem_Powtorz_Click"/>
                 <Separator/>
-                <MenuItem Header="_Wytnij" InputGestureText="Ctrl+X" Click="MenuItem_Wytnij_Click"/>
-                <MenuItem Header="_Kopiuj" InputGestureText="Ctrl+C" Click="MenuItem_Kopiuj_Click"/>
-                <MenuItem Header="Wkl_ej" InputGestureText="Ctrl+V" Click="MenuItem_Wklej_Click"/>
-                <MenuItem Header="_Usuń" InputGestureText="Del" Click="MenuItem_Usun_Click"/>
+                <MenuItem Header="_Wytnij" Icon="{StaticResource IcoCut}" InputGestureText="Ctrl+X" Click="MenuItem_Wytnij_Click"/>
+                <MenuItem Header="_Kopiuj" Icon="{StaticResource IcoCopy}" InputGestureText="Ctrl+C" Click="MenuItem_Kopiuj_Click"/>
+                <MenuItem Header="Wkl_ej" Icon="{StaticResource IcoPaste}" InputGestureText="Ctrl+V" Click="MenuItem_Wklej_Click"/>
+                <MenuItem Header="_Usuń" Icon="{StaticResource IcoDelete}" InputGestureText="Del" Click="MenuItem_Usun_Click"/>
                 <Separator/>
                 <MenuItem Header="Zaznacz w_szystko" InputGestureText="Ctrl+A" Click="MenuItem_ZaznaczWszystko_Click"/>
-                <MenuItem Header="_Godzina/data" InputGestureText="F5" Click="MenuItem_GodzinaData_Click"/>
+                <MenuItem Header="_Godzina/data" Icon="{StaticResource IcoClock}" InputGestureText="F5" Click="MenuItem_GodzinaData_Click"/>
             </MenuItem>
             <MenuItem Header="_Widok">
                 <MenuItem Header="_Zawijanie wierszy" IsCheckable="True" IsChecked="True" Click="MenuItem_ZawijanieWierszy_Click"/>
-                <MenuItem Header="_Czcionka..." Click="MenuItem_Czcionka_Click"/>
-                <MenuItem Header="_Kolor tła..." Click="MenuItem_KolorTla_Click"/>
+                <MenuItem Header="_Czcionka..." Icon="{StaticResource IcoFont}" Click="MenuItem_Czcionka_Click"/>
+                <MenuItem Header="_Kolor tła..." Icon="{StaticResource IcoBackground}" Click="MenuItem_KolorTla_Click"/>
                 <Separator/>
                 <MenuItem Header="Pasek _narzędzi" IsCheckable="True" IsChecked="True" Click="MenuItem_PasekNarzedzi_Click"/>
                 <MenuItem Header="Pasek _stanu" IsCheckable="True" IsChecked="True" Click="MenuItem_PasekStanu_Click"/>
