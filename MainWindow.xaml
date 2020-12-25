@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notatnik"
         mc:Ignorable="d"
-        Title="Notatnik" d:DesignWidth="1055.069" d:DesignHeight="583.303" Loaded="Window_Loaded" Closing="Notebook_Closing">
+        Title="Notatnik" d:DesignWidth="1055.069" d:DesignHeight="583.303" Loaded="Window_Loaded" Closing="Notebook_Closing" PreviewKeyDown="Notebook_PreviewKeyDown">
     <DockPanel>
         <Menu IsMainMenu="True" DockPanel.Dock="Top" FontWeight="Bold">
             <MenuItem Header="_Plik">
@@ -14,7 +14,7 @@
                 <MenuItem Header="Zapi_sz" InputGestureText="Ctrl+S" Click="MenuItem_Zapisz_Click"/>
                 <MenuItem Header="_Zapisz jako..." InputGestureText="Ctrl+N" Click="MenuItem_ZapiszJako_Click"/>
                 <Separator/>
-                <MenuItem Header="_Drukuj" InputGestureText="Ctrl+P"/>
+                <MenuItem Header="_Drukuj" InputGestureText="Ctrl+P" Click="MenuItem_Drukuj_Click"/>
                 <Separator/>
                 <MenuItem Header="Za_kończ" InputGestureText="Alt+F4" Click="MenuItem_Zamknij_Click"/>
             </MenuItem>

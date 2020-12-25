@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Notatnik
@@ -224,6 +225,40 @@ namespace Notatnik
             Font font = Font.ExtractFrom(textBox);
             if (WindowsFormsHelper.ChooseFont(ref font))
                 font.ApplyTo(textBox);
+        }
+
+        private void MenuItem_Drukuj_Click(object sender, RoutedEventArgs e)
+        {
+            Printing.PrintText(textBox.Text, Font.ExtractFrom(textBox));
+        }
+
+        private void Notebook_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            switch(e.Key)
+            {
+                case Key.F5:
+                    MenuItem_GodzinaData_Click(sender, null);
+                    break;
+            }
+
+            if ((e.KeyboardDevice.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                switch(e.Key)
+                {
+                    case Key.N:
+                        MenuItem_Nowy_Click(sender, null);
+                        break;
+                    case Key.O:
+                        MenuItem_Otworz_Click(sender, null);
+                        break;
+                    case Key.S:
+                        MenuItem_Zapisz_Click(sender, null);
+                        break;
+                    case Key.P:
+                        MenuItem_Drukuj_Click(sender, null);
+                        break;
+                }
+            }
         }
     }
 }
