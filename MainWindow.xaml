@@ -21,6 +21,7 @@
         <Image x:Key="IcoForecolor" x:Shared="False" Source="img/forecolor.png" Width="16" Height="16"/>
         <Image x:Key="IcoBackground" x:Shared="False" Source="img/color.png" Width="16" Height="16"/>
         <Image x:Key="IcoFont" x:Shared="False" Source="img/font.png" Width="16" Height="16"/>
+        <Image x:Key="IcoExit" x:Shared="False" Source="img/exit.png" Width="16" Height="16"/>
     </Window.Resources>
     <DockPanel>
         <Menu IsMainMenu="True" DockPanel.Dock="Top" FontWeight="Bold">
@@ -55,7 +56,54 @@
                 <MenuItem Header="Pasek _stanu" IsCheckable="True" IsChecked="True" Click="MenuItem_PasekStanu_Click"/>
             </MenuItem>
         </Menu>
-        <ToolBarTray x:Name="toolBar" DockPanel.Dock="Top"></ToolBarTray>
+        <ToolBarTray x:Name="toolBar" DockPanel.Dock="Top">
+            <ToolBar>
+                <Button ToolTip="Nowy" Content="{StaticResource IcoNew}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Nowy_Click" />
+                <Button ToolTip="Otwórz" Content="{StaticResource IcoOpen}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Otworz_Click" />
+                <Button ToolTip="Zapisz" Content="{StaticResource IcoSave}" ToolBar.OverflowMode="Never" Click="MenuItem_Zapisz_Click" />
+                <Separator/>
+                <Button ToolTip="Drukuj" Content="{StaticResource IcoPrint}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Drukuj_Click" />
+            </ToolBar>
+            <ToolBar>
+                <Button ToolTip="Cofnij" Content="{StaticResource IcoBack}" ToolBar.OverflowMode="Never" Click="MenuItem_Cofnij_Click" />
+                <Button ToolTip="Powtórz" Content="{StaticResource IcoRedo}" ToolBar.OverflowMode="Never" Click="MenuItem_Powtorz_Click" />
+                <Separator />
+                <Button ToolTip="Wytnij" Content="{StaticResource IcoCut}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Wytnij_Click" />
+                <Button ToolTip="Kopiuj" Content="{StaticResource IcoCopy}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Kopiuj_Click" />
+                <Button ToolTip="Wklej" Content="{StaticResource IcoPaste}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Wklej_Click" />
+                <Button ToolTip="Usuń" Content="{StaticResource IcoDelete}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_Usun_Click" />
+            </ToolBar>
+            <ToolBar>
+                <Button ToolTip="Czcionka" Content="{StaticResource IcoFont}" ToolBar.OverflowMode="Never" Click="MenuItem_Czcionka_Click" />
+                <Button ToolTip="Kolor tła" Content="{StaticResource IcoBackground}" ToolBar.OverflowMode="AsNeeded" Click="MenuItem_KolorTla_Click" />
+            </ToolBar>
+        </ToolBarTray>
+        <Ribbon DockPanel.Dock="Top">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu>
+                    <RibbonApplicationMenuItem Header="_Nowy" ImageSource="img/new.png" KeyTip="Ctrl+N" Click="MenuItem_Nowy_Click" />
+                    <RibbonApplicationMenuItem Header="_Otwórz..." ImageSource="img/open.png" KeyTip="Ctrl+O" Click="MenuItem_Otworz_Click" />
+                    <RibbonApplicationMenuItem Header="Zapi_sz" ImageSource="img/save.png" KeyTip="Ctrl+S" Click="MenuItem_Zapisz_Click" />
+                    <RibbonApplicationMenuItem Header="_Zapisz jako..." Click="MenuItem_ZapiszJako_Click" />
+                    <RibbonSeparator/>
+                    <RibbonApplicationMenuItem Header="_Drukuj" ImageSource="img/print.png" KeyTip="Ctrl+P" Click="MenuItem_Drukuj_Click" />
+                    <RibbonSeparator/>
+                    <RibbonApplicationMenuItem Header="Za_kończ" ImageSource="img/exit.png" KeyTip="Alt+F4" Click="MenuItem_Zamknij_Click" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton SmallImageSource="img/save.png" Click="MenuItem_Zapisz_Click" />
+                    <RibbonButton SmallImageSource="img/undo.png" Click="MenuItem_Cofnij_Click" />
+                    <RibbonButton SmallImageSource="img/redo.png" Click="MenuItem_Powtorz_Click" />
+                    <RibbonSplitButton SmallImageSource="img/color.png">
+                        <RibbonSplitMenuItem Header="Zawijanie wierszy" Click="MenuItem_ZawijanieWierszy_Click" IsCheckable="True" IsChecked="True" />
+                        <RibbonSplitMenuItem Header="Czcionka..." ImageSource="img/forecolor.png" />
+                        <RibbonSplitMenuItem Header="Kolor tła" ImageSource="img/color.png" Click="MenuItem_KolorTla_Click" />
+                    </RibbonSplitButton>
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+        </Ribbon>
         <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom">
             <StatusBarItem>
                 <TextBlock x:Name="statusBarText" Text="[Brak pliku]"/>
